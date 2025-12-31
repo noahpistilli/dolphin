@@ -32,7 +32,8 @@ public:
   NetKDRequestDevice(EmulationKernel& ios, const std::string& device_name,
                      const std::shared_ptr<NetKDTimeDevice>& time_device);
   IPCReply HandleNWC24DownloadNowEx(const IOCtlRequest& request);
-  NWC24::ErrorCode KDDownload(const u16 entry_index, const std::optional<u8> subtask_id, bool* is_mail);
+  NWC24::ErrorCode KDDownload(const u16 entry_index, const std::optional<u8> subtask_id,
+                              bool* is_mail);
   IPCReply HandleNWC24CheckMailNow(const IOCtlRequest& request);
   ~NetKDRequestDevice() override;
 

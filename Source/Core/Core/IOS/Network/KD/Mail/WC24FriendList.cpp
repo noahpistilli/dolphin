@@ -79,22 +79,6 @@ bool WC24FriendList::IsFriendEstablished(u64 code) const
   return false;
 }
 
-bool WC24FriendList::IsFriendEstablished(u64 code) const
-{
-  if (code == Common::swap64(NINTENDO_FRIEND_CODE))
-    return true;
-
-  for (u32 i = 0; i < MAX_ENTRIES; i++)
-  {
-    if (Common::swap64(m_data.friend_codes[i]) == code)
-    {
-      return m_data.entries[i].status == Common::swap32(static_cast<u32>(FriendStatus::Confirmed));
-    }
-  }
-
-  return false;
-}
-
 std::vector<u64> WC24FriendList::GetUnconfirmedFriends() const
 {
   std::vector<u64> friends{};
